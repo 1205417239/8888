@@ -1,0 +1,18 @@
+ARCHS = arm64e
+TARGET = iphone:clang:16.5:17.0
+THEOS_PACKAGE_SCHEME = roothide
+
+include $(THEOS)/makefiles/common.mk
+
+TWEAK_NAME = LinguaTweak
+
+LinguaTweak_FILES = Tweak.x \
+                    Sources/Freeze/LTFreezeManager.m
+
+LinguaTweak_CFLAGS = -fobjc-arc -Wno-deprecated-declarations
+LinguaTweak_FRAMEWORKS = UIKit Foundation
+
+SUBPROJECTS += LinguaTweakPrefs
+
+include $(THEOS_MAKE_PATH)/tweak.mk
+include $(THEOS_MAKE_PATH)/aggregate.mk
