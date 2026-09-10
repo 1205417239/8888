@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>items</key>
+    <array>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>LinguaTweak</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>defaults</key>
+            <string>com.lingua.tweak</string>
+            <key>key</key>
+            <string>FreezeEnabled</string>
+            <key>label</key>
+            <string>Freeze</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>defaults</key>
+            <string>com.lingua.tweak</string>
+            <key>key</key>
+            <string>ScreenshotEnabled</string>
+            <key>label</key>
+            <string>Screenshot</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>defaults</key>
+            <string>com.lingua.tweak</string>
+            <key>key</key>
+            <string>TranslateEnabled</string>
+            <key>label</key>
+            <string>Translate</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>defaults</key>
+            <string>com.lingua.tweak</string>
+            <key>key</key>
+            <string>AIEnabled</string>
+            <key>label</key>
+            <string>AI Assistant</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>defaults</key>
+            <string>com.lingua.tweak</string>
+            <key>key</key>
+            <string>EditorEnabled</string>
+            <key>label</key>
+            <string>Editor</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>defaults</key>
+            <string>com.lingua.tweak</string>
+            <key>key</key>
+            <string>LongShotEnabled</string>
+            <key>label</key>
+            <string>Long Screenshot</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>defaults</key>
+            <string>com.lingua.tweak</string>
+            <key>key</key>
+            <string>SileoTranslateEnabled</string>
+            <key>label</key>
+            <string>Sileo Translate</string>
+        </dict>
+
+    </array>
+</dict>
+</plist>
