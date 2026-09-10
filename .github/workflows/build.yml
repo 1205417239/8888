@@ -1,0 +1,46 @@
+name: Build LinguaTweak
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Theos
+        run: |
+          git clone --recursive --depth 1 \
+            https://github.com/roothide/theos.git \
+            "$HOME/theos"
+
+      - name: Download iPhoneOS SDK 16.5
+        run: |
+          mkdir -p "$HOME/theos/sdks"
+          curl -L \
+            -o /tmp/iPhoneOS16.5.sdk.tar.xz \
+            https://github.com/theos/sdks/releases/latest/download/iPhoneOS16.5.sdk.tar.xz
+          tar -xf /tmp/iPhoneOS16.5.sdk.tar.xz \
+            -C "$HOME/theos/sdks"
+
+      - name: Install ldid
+        run: |
+          brew install ldid
+
+      - name: Build
+        run: |
+          export THEOS="$HOME/theos"
+          export PATH="$THEOS/bin:$PATH"
+          make clean
+          make package ARCHS=arm64e FINALPACKAGE=1
+
+      - name: Show packages
+        run: |
+          echo "Generated packages:"
+          ls -lh packages/
