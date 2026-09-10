@@ -1,5 +1,0 @@
-{
-    bundle = "com.lingua.tweak.prefs";
-    entry = "LTPrefsRootListController";
-    label = "LinguaTweak";
-}
