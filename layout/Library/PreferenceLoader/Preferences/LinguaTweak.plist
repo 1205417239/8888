@@ -1,8 +1,0 @@
-{
-    entry = {
-        bundle = "LinguaTweakPrefs";
-        cell = PSLinkCell;
-        isController = true;
-        label = "LinguaTweak";
-    };
-}
