@@ -196,7 +196,7 @@
     freezeWindow.frame =
         windowScene.coordinateSpace.bounds;
 
-    freezeWindow.windowLevel = 10000.0;
+    freezeWindow.windowLevel = CGFLOAT_MAX / 2;
 
     freezeWindow.backgroundColor =
         UIColor.blackColor;
