@@ -36,7 +36,7 @@ static void LTArmScreenshotSuppression(void)
 {
     ltSuppressScreenshot = YES;
     ltSuppressScreenshotUntil =
-        CACurrentMediaTime() + 1.5;
+        CACurrentMediaTime() + 5.0;
 }
 
 
