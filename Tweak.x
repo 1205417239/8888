@@ -342,13 +342,18 @@ static void LTProcessPressesEvent(id event)
         [LTSettings sharedSettings];
 
     if ([settings isEnabled] &&
-        [settings isFreezeEnabled] &&
-        [settings isScreenshotEnabled] &&
-        LTShouldSuppressScreenshot()) {
+        [settings isFreezeEnabled]) {
 
-        NSLog(@"[LinguaTweak] 已拦截 SBScreenshotManager 原生截图");
+        NSLog(@"[LinguaTweak] 截图触发，执行冻结");
 
-        return;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            LTTriggerFreeze();
+        });
+
+        if ([settings isScreenshotEnabled]) {
+            NSLog(@"[LinguaTweak] 已拦截原生截图");
+            return;
+        }
     }
 
     %orig(completion);
