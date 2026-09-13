@@ -99,12 +99,6 @@
 
 - (UIImage *)captureScreen
 {
-    /*
-     * 优先使用系统屏幕截图接口。
-     *
-     * 这是冻结画面的来源，
-     * 与原生截图保存流程不是同一件事。
-     */
     UIImage *image = nil;
 
     Class uiClass = NSClassFromString(@"UIScreen");
@@ -115,9 +109,9 @@
 
         @try {
 
-            image =
-                [uiClass performSelector:
-                    NSSelectorFromString(@"_createSnapshot")];
+            SEL sel = NSSelectorFromString(@"_createSnapshot");
+            id (*func)(id, SEL) = (void *)[uiClass methodForSelector:sel];
+            image = func(uiClass, sel);
 
         }
         @catch (NSException *exception) {
@@ -126,10 +120,6 @@
         }
     }
 
-    /*
-     * 如果私有接口不可用，
-     * 回退到当前窗口绘制。
-     */
     if (!image) {
 
         UIWindow *window =
@@ -206,9 +196,6 @@
     freezeWindow.frame =
         windowScene.coordinateSpace.bounds;
 
-    /*
-     * 必须高于普通 SpringBoard 窗口。
-     */
     freezeWindow.windowLevel = 10000.0;
 
     freezeWindow.backgroundColor =
@@ -232,10 +219,6 @@
 
     imageView.userInteractionEnabled = YES;
 
-
-    /*
-     * 双击解除冻结。
-     */
     UITapGestureRecognizer *doubleTap =
         [[UITapGestureRecognizer alloc]
             initWithTarget:self
